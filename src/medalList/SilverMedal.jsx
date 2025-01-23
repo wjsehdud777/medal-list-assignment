@@ -1,29 +1,29 @@
 import { useState } from "react";
 
-const BRONZE_MEDAL = [
+const SILVER_MEDAL = [
   {
     id: 1,
-    text: "동메달",
+    text: "은메달",
   },
 ];
 
-const BronzeMedal = () => {
-  const [broze, setBroze] = useState(BRONZE_MEDAL);
+const SilverMedal = () => {
+  const [silver, setsilver] = useState(SILVER_MEDAL);
 
-  const [newBroze, setNewBroze] = useState("");
+  const [newsilver, setNewsilver] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!newBroze.trim()) {
+    if (!newsilver.trim()) {
       return;
     }
 
-    setBroze([{ id: crypto.randomUUID(), text: newBroze }, ...broze]);
-    setNewBroze("");
+    setsilver([{ id: crypto.randomUUID(), text: newsilver }, ...broze]);
+    setNewsilver("");
   };
   const handleInputChange = (e) => {
-    setNewBroze(e.target.value);
+    setNewsilver(e.target.value);
   };
 
   return (
@@ -31,18 +31,18 @@ const BronzeMedal = () => {
       <form>
         <input
           type="text"
-          value={newBroze}
+          value={newsilver}
           onChange={handleInputChange}
           placeholder="대한민국 짱!"
         />
         {/* <button type="submit">국가 추가</button> */}
       </form>
       <ul>
-        {broze.map((brozes) => (
-          <li key={brozes.id}>{brozes.text}</li>
+        {silver.map((silvers) => (
+          <li key={silvers.id}>{silvers.text}</li>
         ))}
       </ul>
     </div>
   );
 };
-export default BronzeMedal;
+export default SilverMedal;
