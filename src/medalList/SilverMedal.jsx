@@ -1,48 +1,38 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
-const SILVER_MEDAL = [
-  {
-    id: 1,
-    text: "은메달",
-  },
-];
-
-const SilverMedal = () => {
-  const [silver, setsilver] = useState(SILVER_MEDAL);
-
-  const [newsilver, setNewsilver] = useState("");
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    if (!newsilver.trim()) {
-      return;
-    }
-
-    setsilver([{ id: crypto.randomUUID(), text: newsilver }, ...broze]);
-    setNewsilver("");
+const Counter = () => {
+  const SilverInput = {
+    textAlign: "rept",
+    padding: "5px",
+    border: "1px solid",
   };
-  const handleInputChange = (e) => {
-    setNewsilver(e.target.value);
+
+  const SilverText = { textAlign: "center", fontWeight: "bold" };
+
+  const [count, setCount] = useState(0);
+
+  const increment = () => {
+    setCount(count + 1);
+  };
+
+  const decrement = () => {
+    setCount(count - 1);
   };
 
   return (
     <div>
-      <form>
-        <input
-          type="text"
-          value={newsilver}
-          onChange={handleInputChange}
-          placeholder="대한민국 짱!"
-        />
-        {/* <button type="submit">국가 추가</button> */}
-      </form>
-      <ul>
-        {silver.map((silvers) => (
-          <li key={silvers.id}>{silvers.text}</li>
-        ))}
-      </ul>
+      <p type="text" style={SilverText}>
+        은메달
+      </p>
+      <input style={SilverInput} type="text" value={count} readOnly />
+      <button style={{ float: "right" }} onClick={decrement}>
+        -
+      </button>
+      <button style={{ float: "right" }} onClick={increment}>
+        +
+      </button>
     </div>
   );
 };
-export default SilverMedal;
+
+export default Counter;

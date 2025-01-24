@@ -1,48 +1,38 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
-const BRONZE_MEDAL = [
-  {
-    id: 1,
-    text: "동메달",
-  },
-];
-
-const BronzeMedal = () => {
-  const [broze, setBroze] = useState(BRONZE_MEDAL);
-
-  const [newBroze, setNewBroze] = useState("");
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    if (!newBroze.trim()) {
-      return;
-    }
-
-    setBroze([{ id: crypto.randomUUID(), text: newBroze }, ...broze]);
-    setNewBroze("");
+const Counter = () => {
+  const BronezeInput = {
+    textAlign: "rept",
+    padding: "5px",
+    border: "1px solid",
   };
-  const handleInputChange = (e) => {
-    setNewBroze(e.target.value);
+
+  const BronzeText = { textAlign: "center", fontWeight: "bold" };
+
+  const [count, setCount] = useState(0);
+
+  const increment = () => {
+    setCount(count + 1);
+  };
+
+  const decrement = () => {
+    setCount(count - 1);
   };
 
   return (
     <div>
-      <form>
-        <input
-          type="text"
-          value={newBroze}
-          onChange={handleInputChange}
-          placeholder="대한민국 짱!"
-        />
-        {/* <button type="submit">국가 추가</button> */}
-      </form>
-      <ul>
-        {broze.map((brozes) => (
-          <li key={brozes.id}>{brozes.text}</li>
-        ))}
-      </ul>
+      <p type="text" style={BronzeText}>
+        동메달
+      </p>
+      <input style={BronezeInput} type="text" value={count} readOnly />
+      <button style={{ float: "right" }} onClick={decrement}>
+        -
+      </button>
+      <button style={{ float: "right" }} onClick={increment}>
+        +
+      </button>
     </div>
   );
 };
-export default BronzeMedal;
+
+export default Counter;
