@@ -1,8 +1,38 @@
+.title {
+  font-size: 26px;
+  font-weight: 700;
+  color: navy;
+}
+
 .main-center {
-  display:flex;
-  flex-direction: row;
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
   height: 100vh;
-  background-color:lightcyan
+  gap: 30px;
+}
+
+.medal-form {
+  display: flex;
+  gap: 16px;
+}
+
+.label_style {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+}
+
+.label_style input {
+  width: 150px;
+}
+
+.medal-list {
+  margin-top: 20px;
+}
+
+.medal-list li {
+  margin-bottom: 10px;
 }
